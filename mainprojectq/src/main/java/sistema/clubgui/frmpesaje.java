@@ -81,7 +81,7 @@ public class frmpesaje extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         registrar = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        dietas = new javax.swing.JLabel();
+        modificar = new javax.swing.JLabel();
         et4 = new javax.swing.JLabel();
         txtimc = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -271,7 +271,7 @@ public class frmpesaje extends javax.swing.JFrame {
                 .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bckg.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, 30));
+        bckg.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, 30));
 
         jPanel5.setBackground(new java.awt.Color(154, 81, 49));
 
@@ -304,29 +304,33 @@ public class frmpesaje extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(154, 81, 49));
 
-        dietas.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        dietas.setForeground(new java.awt.Color(255, 255, 255));
-        dietas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dietas.setText("IR  A DIETAS");
-        dietas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        modificar.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        modificar.setForeground(new java.awt.Color(255, 255, 255));
+        modificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        modificar.setText("MODIFICAR");
+        modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dietas, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(dietas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bckg.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, 30));
+        bckg.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, -1, 30));
 
         et4.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
         et4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -375,7 +379,7 @@ public class frmpesaje extends javax.swing.JFrame {
                 .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bckg.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, -1, -1));
+        bckg.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -451,6 +455,39 @@ public class frmpesaje extends javax.swing.JFrame {
         txtpie.setText("");
     }//GEN-LAST:event_limpiarMouseClicked
 
+    private void modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarMouseClicked
+        try{
+            Connection con = null;
+            con=conexionbd();
+            ps=con.prepareStatement("UPDATE pmed SET idfitness=?, idcoach=?, fechap=?, pesofit=?, musculofit=?, grasafit=?, grasavfit=?, edadmfit=?, imcfit=?, mbrazofit=?, mpechofit=?, mcinturafit=?, mcaderafit=?, mpiernafit=? WHERE idpesaje=?");
+            
+            
+             ps.setString(1, txtidfit.getText());
+             ps.setString(2, txtcoach.getText());
+             ps.setString(3, txtfecha.getText());
+             ps.setString(4, txtpeso.getText());
+             ps.setString(5, txtmus.getText());
+             ps.setString(6, txtgra.getText());
+             ps.setString(7, txtgv.getText());
+             ps.setString(8, txtem.getText());
+             ps.setString(9, txtimc.getText());
+             ps.setString(10, txtbra.getText());
+             ps.setString(11, txtpe.getText());
+             ps.setString(12, txtcin.getText());
+             ps.setString(13, txtcad.getText());
+             ps.setString(14, txtpie.getText());
+             ps.setString(15, txtidp.getText());
+            int res = ps.executeUpdate();
+            if (res>0){
+                JOptionPane.showMessageDialog(null, "Se modifico el registro");
+            }else {JOptionPane.showMessageDialog(null, "ERROR: No se modifico");}
+            con.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR: N"+e.toString());
+        }
+    }//GEN-LAST:event_modificarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -488,7 +525,6 @@ public class frmpesaje extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bckg;
-    private javax.swing.JLabel dietas;
     private javax.swing.JLabel et1;
     private javax.swing.JLabel et2;
     private javax.swing.JLabel et3;
@@ -519,6 +555,7 @@ public class frmpesaje extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel limpiar;
+    private javax.swing.JLabel modificar;
     private javax.swing.JLabel registrar;
     private javax.swing.JTextField txtbra;
     private javax.swing.JTextField txtcad;

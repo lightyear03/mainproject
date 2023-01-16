@@ -75,7 +75,7 @@ public class frmnuevofitness extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 153, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("REGISTRO DE NUEVOS MIEMBROS FITNESS");
+        jLabel1.setText("REGISTRO DE NUEVOS MIEMBROS");
         background1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 550, 70));
 
         jPanel1.setBackground(new java.awt.Color(110, 178, 204));

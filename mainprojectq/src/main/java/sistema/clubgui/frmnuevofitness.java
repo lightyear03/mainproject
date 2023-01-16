@@ -158,11 +158,11 @@ public class frmnuevofitness extends javax.swing.JFrame {
         background1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 280, 10));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        background1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 120, 10));
+        background1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 120, 10));
 
         txtcoach.setFont(new java.awt.Font("Roboto Light", 1, 12)); // NOI18N
         txtcoach.setBorder(null);
-        background1.add(txtcoach, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 120, 20));
+        background1.add(txtcoach, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 120, 20));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 153));
 
@@ -250,7 +250,7 @@ public class frmnuevofitness extends javax.swing.JFrame {
         background1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel13.setText("id Coach: ");
+        jLabel13.setText("id Asesor: ");
         background1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         txtmail.setFont(new java.awt.Font("Roboto Light", 1, 12)); // NOI18N

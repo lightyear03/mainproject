@@ -352,3 +352,5 @@ public class frmnuevofitness extends javax.swing.JFrame {
     private javax.swing.JTextField txtnom;
     // End of variables declaration//GEN-END:variables
 }
+
+//Otro comentario

@@ -1,17 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 package sistema.clubgui;
 
-/**
- *
- * @author Josè MP
- */
-public class frmpagos extends javax.swing.JFrame {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
-    /** Creates new form frmpagos */
+public class frmpagos extends javax.swing.JFrame {
+    Connection conectar = null;
+    String  usuario="DDEVELOP";
+    String contrasena="DATADEV20163q";
+    String bd ="bdconsul";
+    String ip="localhost";
+    String puerto="3306";
+    PreparedStatement ps;
+    ResultSet rs;
+    
+    String cadena="jdbc:mysql://"+ip+":"+puerto+"/"+bd;
+    
+    public Connection conexionbd(){
+        
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conectar=DriverManager.getConnection(cadena, usuario, contrasena);
+            JOptionPane.showMessageDialog(null, "ACCESO: Se conecto la base de datos.");
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR: No se conecto la base de datos."+e.toString());
+        }
+        return conectar;
+        
+    }
+   
     public frmpagos() {
         initComponents();
     }
@@ -25,35 +45,40 @@ public class frmpagos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bckg = new javax.swing.JPanel();
+        btcancel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtip = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField2 = new javax.swing.JTextField();
+        txtidfit = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        visor = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btadd = new javax.swing.JButton();
+        btedit = new javax.swing.JButton();
+        btdelete = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtfr = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtfv = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        cmiembro = new javax.swing.JButton();
+        cpago = new javax.swing.JButton();
+        limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(658, 369));
         setPreferredSize(new java.awt.Dimension(714, 500));
 
-        bckg.setBackground(new java.awt.Color(255, 255, 255));
-        bckg.setPreferredSize(new java.awt.Dimension(714, 500));
-        bckg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btcancel.setBackground(new java.awt.Color(255, 255, 255));
+        btcancel.setPreferredSize(new java.awt.Dimension(714, 500));
+        btcancel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(115, 109, 92));
 
@@ -73,20 +98,20 @@ public class frmpagos extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        bckg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 360, 50));
+        btcancel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 360, 50));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel3.setText("Fecha de registro: ");
-        bckg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        btcancel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
-        jTextField1.setBorder(null);
-        bckg.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 160, -1));
-        bckg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 160, 10));
+        txtip.setBorder(null);
+        btcancel.add(txtip, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 160, -1));
+        btcancel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 160, 10));
 
-        jTextField2.setBorder(null);
-        bckg.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 160, -1));
+        txtidfit.setBorder(null);
+        btcancel.add(txtidfit, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 160, 20));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        visor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -97,40 +122,46 @@ public class frmpagos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
+        visor.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(visor);
 
-        bckg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 490, 90));
+        btcancel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 490, 90));
 
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel5.setText("Id del Fitness:");
-        bckg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        jLabel5.setText("Id del pago:");
+        btcancel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
-        jButton2.setText("Agregar");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        btadd.setText("Agregar");
+        btadd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btadd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btaddMouseClicked(evt);
             }
         });
-        bckg.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
-
-        jButton3.setText("Editar");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bckg.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
-
-        jButton4.setText("Borrar");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bckg.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
-
-        jButton5.setText("Cancelar");
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btaddActionPerformed(evt);
             }
         });
-        bckg.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, -1));
+        btcancel.add(btadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
+
+        btedit.setText("Editar");
+        btedit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btedit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bteditMouseClicked(evt);
+            }
+        });
+        btcancel.add(btedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
+
+        btdelete.setText("Borrar por Id");
+        btdelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btdelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btdeleteMouseClicked(evt);
+            }
+        });
+        btcancel.add(btdelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 100, -1));
 
         jPanel2.setBackground(new java.awt.Color(180, 206, 217));
 
@@ -155,41 +186,195 @@ public class frmpagos extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bckg.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 110, 50));
+        btcancel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 110, 50));
 
-        jTextField3.setBorder(null);
-        bckg.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 160, -1));
-        bckg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 160, 10));
+        txtfr.setBorder(null);
+        btcancel.add(txtfr, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 160, -1));
+        btcancel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 160, 10));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel6.setText("Fecha de vencimiento: ");
-        bckg.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
+        btcancel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
 
-        jTextField4.setBorder(null);
-        bckg.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 160, -1));
-        bckg.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 160, 10));
+        txtfv.setBorder(null);
+        btcancel.add(txtfv, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 160, -1));
+        btcancel.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 160, 10));
+
+        jLabel7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel7.setText("Id del Fitness:");
+        btcancel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
+
+        jTextField5.setBorder(null);
+        btcancel.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 160, -1));
+        btcancel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 160, 10));
+
+        cmiembro.setLabel("Consultar por miembro");
+        cmiembro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmiembroMouseClicked(evt);
+            }
+        });
+        cmiembro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmiembroActionPerformed(evt);
+            }
+        });
+        btcancel.add(cmiembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 170, 30));
+
+        cpago.setBackground(new java.awt.Color(204, 204, 255));
+        cpago.setLabel("Consultar por ID de pago");
+        cpago.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cpagoMouseClicked(evt);
+            }
+        });
+        btcancel.add(cpago, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
+
+        limpiar.setLabel("LIMPIAR");
+        limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarActionPerformed(evt);
+            }
+        });
+        btcancel.add(limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bckg, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
+            .addComponent(btcancel, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bckg, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addComponent(btcancel, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btaddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btaddActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btaddMouseClicked
+        try{
+            Connection con = null;
+            con=conexionbd();
+            ps=con.prepareStatement("INSERT INTO pago (idpago, idfitness, fechapago, fechav ) VALUES (?,?,?,?)");
+            ps.setString(1, txtip.getText());
+            ps.setString(2, txtidfit.getText());
+            ps.setString(3, txtfr.getText());
+            ps.setString(4, txtfv.getText());
+            
+            int res = ps.executeUpdate();
+             if (res>0){
+                JOptionPane.showMessageDialog(null, "Se guardo");
+            }else {JOptionPane.showMessageDialog(null, "No se guardo");}
+            con.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR: N"+e.toString());
+        }
+    }//GEN-LAST:event_btaddMouseClicked
+
+    private void cmiembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmiembroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cmiembroActionPerformed
+
+    private void cmiembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmiembroMouseClicked
+        String [] nombresColumnas={"Num de pago", "Miembro", "Fecha de registro", "Fecha de vencimiento"};
+        String[] registros = new String[4];
+        DefaultTableModel modelo = new DefaultTableModel(null, nombresColumnas);
+        Connection con = null;
+        try{
+             con=conexionbd();
+            ps= con.prepareStatement("SELECT * FROM pago WHERE idfitness =?");
+            ps.setString(1, txtidfit.getText());
+            rs=ps.executeQuery();
+            visor.setModel(modelo);
+           while (rs.next()){
+               registros [0] = rs.getString("idpago");
+               registros [1] = rs.getString("idfitness");
+               registros [2] = rs.getString("fechapago");
+               registros [3] = rs.getString("fechav");
+               modelo.addRow(registros);
+               
+           }
+            
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR:"+e.toString());
+        }
+    }//GEN-LAST:event_cmiembroMouseClicked
+
+    private void bteditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bteditMouseClicked
+        try{
+            Connection con = null;
+            con=conexionbd();
+            ps=con.prepareStatement("UPDATE pago SET idfitness=?, fechapago=?, fechav=? WHERE idpago=?");
+            ps.setString(1, txtidfit.getText());
+            ps.setString(2, txtfr.getText());
+            ps.setString(3, txtfv.getText());
+            ps.setString(4, txtip.getText());
+            int res = ps.executeUpdate();
+            if (res>0){
+                JOptionPane.showMessageDialog(null, "Se modifico el registro");
+            }else {JOptionPane.showMessageDialog(null, "ERROR: No se modifico");}
+            con.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR:"+e.toString());
+        }
+    }//GEN-LAST:event_bteditMouseClicked
+
+    private void btdeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btdeleteMouseClicked
+        try{
+            Connection con = null;
+            con=conexionbd();
+            ps=con.prepareStatement("DELETE FROM pago WHERE idpago=?");
+            
+            ps.setString(1, txtip.getText());   
+            int res = ps.executeUpdate();
+            if (res>0){
+                JOptionPane.showMessageDialog(null, "Se elimino el registro");
+            }else {JOptionPane.showMessageDialog(null, "ERROR: No se elimino");}
+            con.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR: N"+e.toString());
+        }
+    }//GEN-LAST:event_btdeleteMouseClicked
+
+    private void cpagoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cpagoMouseClicked
+        String [] nombresColumnas={"Num de pago", "Miembro", "Fecha de registro", "Fecha de vencimiento"};
+        String[] registros = new String[4];
+        DefaultTableModel modelo = new DefaultTableModel(null, nombresColumnas);
+        Connection con = null;
+        try{
+             con=conexionbd();
+            ps= con.prepareStatement("SELECT * FROM pago WHERE idpago =?");
+            ps.setString(1, txtip.getText());
+            rs=ps.executeQuery();
+            visor.setModel(modelo);
+           while (rs.next()){
+               registros [0] = rs.getString("idpago");
+               registros [1] = rs.getString("idfitness");
+               registros [2] = rs.getString("fechapago");
+               registros [3] = rs.getString("fechav");
+               modelo.addRow(registros);
+               
+           }
+            
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR:"+e.toString());
+        }
+    }//GEN-LAST:event_cpagoMouseClicked
+
+    private void limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarActionPerformed
+        txtip.setText("");
+        txtidfit.setText("");
+        txtfr.setText("");
+        txtfv.setText("");
+        
+    }//GEN-LAST:event_limpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,27 +412,32 @@ public class frmpagos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bckg;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btadd;
+    private javax.swing.JPanel btcancel;
+    private javax.swing.JButton btdelete;
+    private javax.swing.JButton btedit;
+    private javax.swing.JButton cmiembro;
+    private javax.swing.JButton cpago;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JButton limpiar;
+    private javax.swing.JTextField txtfr;
+    private javax.swing.JTextField txtfv;
+    private javax.swing.JTextField txtidfit;
+    private javax.swing.JTextField txtip;
+    private javax.swing.JTable visor;
     // End of variables declaration//GEN-END:variables
 
 }

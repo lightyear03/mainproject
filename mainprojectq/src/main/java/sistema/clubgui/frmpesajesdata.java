@@ -473,6 +473,7 @@ public class frmpesajesdata extends javax.swing.JFrame {
         txtid.setText("");
         txtcoach.setText("");
         txtfecha.setText("");
+        idpe.setText("");
         visor.setModel(null);
     }//GEN-LAST:event_limpiarMouseClicked
 

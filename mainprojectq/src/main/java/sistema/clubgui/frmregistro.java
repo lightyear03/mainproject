@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import java.awt.Color;
+import java.awt.*;
 
 
 public class frmregistro extends javax.swing.JFrame {
@@ -40,11 +40,12 @@ public class frmregistro extends javax.swing.JFrame {
         CajaID.setText(null);
         CajaNombre.setText(null);
         CajaUsuario.setText(null);
-        CajaContraseña.setText(null);
+        txtContra.setText(null);
     }
     
     public frmregistro() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -52,52 +53,50 @@ public class frmregistro extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        TextoRegistro = new javax.swing.JLabel();
         TextoID = new javax.swing.JLabel();
         CajaID = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         TextoNombre = new javax.swing.JLabel();
         CajaNombre = new javax.swing.JTextField();
-        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
         TextoUsuario = new javax.swing.JLabel();
         CajaUsuario = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         TextoCorreo = new javax.swing.JLabel();
         CajaCorreo = new javax.swing.JTextField();
-        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
         TextoContraseña = new javax.swing.JLabel();
-        CajaContraseña = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        Img = new javax.swing.JLabel();
         CajaRegistrar = new javax.swing.JPanel();
         TextoRegistrar = new javax.swing.JLabel();
+        txtContra = new javax.swing.JPasswordField();
+        jPanel1 = new javax.swing.JPanel();
+        TextoRegistro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(657, 370));
-        setPreferredSize(new java.awt.Dimension(568, 369));
+        setMinimumSize(new java.awt.Dimension(589, 363));
+        setPreferredSize(new java.awt.Dimension(589, 363));
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
-        bg.setPreferredSize(new java.awt.Dimension(714, 369));
+        bg.setMinimumSize(new java.awt.Dimension(589, 363));
+        bg.setPreferredSize(new java.awt.Dimension(589, 363));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TextoRegistro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        TextoRegistro.setText("REGISTRO");
-        bg.add(TextoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         TextoID.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         TextoID.setText("ID");
         bg.add(TextoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         CajaID.setForeground(new java.awt.Color(204, 204, 204));
-        CajaID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CajaID.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         CajaID.setText("Ingrese su ID");
         CajaID.setBorder(null);
+        CajaID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         CajaID.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 CajaIDMousePressed(evt);
             }
         });
-        bg.add(CajaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, -1));
+        bg.add(CajaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 20));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, 10));
@@ -107,8 +106,8 @@ public class frmregistro extends javax.swing.JFrame {
         bg.add(TextoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
 
         CajaNombre.setForeground(new java.awt.Color(204, 204, 204));
-        CajaNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CajaNombre.setText("Ingrese su nombre");
+        CajaNombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        CajaNombre.setText("Nombre completo");
         CajaNombre.setBorder(null);
         CajaNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -120,17 +119,17 @@ public class frmregistro extends javax.swing.JFrame {
                 CajaNombreActionPerformed(evt);
             }
         });
-        bg.add(CajaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 120, -1));
+        bg.add(CajaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 150, 20));
 
-        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 150, 10));
+        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        bg.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 150, 10));
 
         TextoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         TextoUsuario.setText("Usuario");
         bg.add(TextoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
         CajaUsuario.setForeground(new java.awt.Color(204, 204, 204));
-        CajaUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CajaUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         CajaUsuario.setText("Nombre de Usuario");
         CajaUsuario.setBorder(null);
         CajaUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -138,7 +137,12 @@ public class frmregistro extends javax.swing.JFrame {
                 CajaUsuarioMousePressed(evt);
             }
         });
-        bg.add(CajaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 110, -1));
+        CajaUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CajaUsuarioKeyTyped(evt);
+            }
+        });
+        bg.add(CajaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 150, 20));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 150, 10));
@@ -148,7 +152,7 @@ public class frmregistro extends javax.swing.JFrame {
         bg.add(TextoCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         CajaCorreo.setForeground(new java.awt.Color(204, 204, 204));
-        CajaCorreo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CajaCorreo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         CajaCorreo.setText("correo@dominio.com");
         CajaCorreo.setBorder(null);
         CajaCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,36 +165,21 @@ public class frmregistro extends javax.swing.JFrame {
                 CajaCorreoActionPerformed(evt);
             }
         });
-        bg.add(CajaCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 130, -1));
+        bg.add(CajaCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 150, 20));
 
-        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 150, 10));
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+        bg.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 150, 10));
 
         TextoContraseña.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         TextoContraseña.setText("Contraseña");
         bg.add(TextoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
 
-        CajaContraseña.setForeground(new java.awt.Color(204, 204, 204));
-        CajaContraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CajaContraseña.setText("**********");
-        CajaContraseña.setBorder(null);
-        CajaContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                CajaContraseñaMousePressed(evt);
-            }
-        });
-        bg.add(CajaContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 110, 10));
-
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 120, 10));
 
-        Img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistema/clubgui/img/nutrim.jpg"))); // NOI18N
-        Img.setText("jLabel6");
-        bg.add(Img, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 0, 220, 370));
-
         CajaRegistrar.setBackground(new java.awt.Color(47, 106, 135));
 
-        TextoRegistrar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        TextoRegistrar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         TextoRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         TextoRegistrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TextoRegistrar.setText("Registrar");
@@ -224,15 +213,61 @@ public class frmregistro extends javax.swing.JFrame {
 
         bg.add(CajaRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 160, 50));
 
+        txtContra.setText("CajaContraseña");
+        txtContra.setBorder(null);
+        txtContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtContraMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtContraMousePressed(evt);
+            }
+        });
+        txtContra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraActionPerformed(evt);
+            }
+        });
+        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraKeyTyped(evt);
+            }
+        });
+        bg.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 120, 20));
+
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+
+        TextoRegistro.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        TextoRegistro.setText("REGISTRO");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(TextoRegistro)
+                .addContainerGap(447, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(TextoRegistro)
+                .addGap(17, 17, 17))
+        );
+
+        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 60));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -247,33 +282,7 @@ public class frmregistro extends javax.swing.JFrame {
     }//GEN-LAST:event_CajaCorreoActionPerformed
 
     private void TextoRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistrarMouseEntered
-        TextoRegistrar.setBackground(new Color (0, 156, 223));
-        
-            Connection con=null;
-try{
-    con=conexionbd();
-    ps=con.prepareStatement("INSERT INTO asesor(idCoach, nombre, uduario, password, correo) VALUES (?, ?, ?, ?, ?)");
-    ps.setString(1,CajaID.getText());
-    ps.setString(2,CajaNombre.getText());
-    ps.setString(3,CajaUsuario.getText());
-    ps.setString(4,CajaContraseña.getText());
-    ps.setString(5,CajaCorreo.getText());
-    
-    int res=ps.executeUpdate();
-    
-    if (res>0) {
-        JOptionPane.showMessageDialog(null, "Registro exitoso");
-        limpiarCajas();
-    }
-    else{
-    JOptionPane.showMessageDialog(null, "Error al registrar");
-    limpiarCajas();
-    }
-    con.close();
-    }catch(Exception e){
-    System.out.print(e.getMessage());
-    }
- 
+
     }//GEN-LAST:event_TextoRegistrarMouseEntered
 
     private void TextoRegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistrarMouseExited
@@ -290,22 +299,11 @@ try{
             CajaCorreo.setText("");
             CajaCorreo.setForeground(Color.black);
         }
-        if (String.valueOf(CajaContraseña.getText()).isEmpty()){
-        CajaContraseña.setText("**********");
-        CajaContraseña.setForeground(Color.gray);
+        if (String.valueOf(txtContra.getText()).isEmpty()){
+        txtContra.setText("********");
+        txtContra.setForeground(Color.gray);
         }
     }//GEN-LAST:event_CajaCorreoMousePressed
-
-    private void CajaContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CajaContraseñaMousePressed
-        if (String.valueOf(CajaCorreo.getText()).equals("**********")){
-            CajaCorreo.setText("");
-            CajaCorreo.setForeground(Color.black);
-        }
-        if (CajaContraseña.getText().isEmpty()){
-        CajaContraseña.setText("correo@dominio.com");
-        CajaContraseña.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_CajaContraseñaMousePressed
 
     private void CajaNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CajaNombreMousePressed
         CajaNombre.setText("");
@@ -318,8 +316,64 @@ try{
     }//GEN-LAST:event_CajaUsuarioMousePressed
 
     private void TextoRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistrarMouseClicked
+try {
         
+            Connection con=null;
+            con=conexionbd();
+    
+         ps=con.prepareStatement("INSERT INTO asesor(idCoach, nombre, usuario, password, correo) VALUES (?, ?, ?, ?, ?)");
+         ps.setString(1,CajaID.getText());
+         ps.setString(2,CajaNombre.getText());
+         ps.setString(3,CajaUsuario.getText());
+         ps.setString(4,txtContra.getText());
+         ps.setString(5,CajaCorreo.getText());
+
+         int res=ps.executeUpdate();
+    
+        if (res>0) {
+            JOptionPane.showMessageDialog(null,"Registro exitoso");
+            limpiarCajas();
+            CajaID.grabFocus();    
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al registrar");
+        }
+            con.close();
+  }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR, Intente su registro nuevamente ");
+        }
     }//GEN-LAST:event_TextoRegistrarMouseClicked
+
+    private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
+
+    }//GEN-LAST:event_txtContraActionPerformed
+
+    private void txtContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseClicked
+        txtContra.setText("");
+    }//GEN-LAST:event_txtContraMouseClicked
+
+    private void txtContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMousePressed
+        if (String.valueOf(txtContra.getText()).equals("********")){
+            txtContra.setText("");
+            txtContra.setForeground(Color.black);
+            
+        }
+        if (CajaCorreo.getText().isEmpty()){
+        CajaCorreo.setText("correo@dominio.com");
+        CajaCorreo.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_txtContraMousePressed
+
+    private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
+        if(txtContra.getText().length() == 8){
+        evt.consume();
+        }
+    }//GEN-LAST:event_txtContraKeyTyped
+
+    private void CajaUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CajaUsuarioKeyTyped
+        if(CajaUsuario.getText().length() == 10){
+        evt.consume();
+        }
+    }//GEN-LAST:event_CajaUsuarioKeyTyped
 
     /**
      * @param args the command line arguments
@@ -357,13 +411,11 @@ try{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CajaContraseña;
     private javax.swing.JTextField CajaCorreo;
     private javax.swing.JTextField CajaID;
     private javax.swing.JTextField CajaNombre;
     private javax.swing.JPanel CajaRegistrar;
     private javax.swing.JTextField CajaUsuario;
-    private javax.swing.JLabel Img;
     private javax.swing.JLabel TextoContraseña;
     private javax.swing.JLabel TextoCorreo;
     private javax.swing.JLabel TextoID;
@@ -372,11 +424,13 @@ try{
     private javax.swing.JLabel TextoRegistro;
     private javax.swing.JLabel TextoUsuario;
     private javax.swing.JPanel bg;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JPasswordField txtContra;
     // End of variables declaration//GEN-END:variables
-
+   
 }

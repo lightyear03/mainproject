@@ -1,20 +1,114 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package sistema.clubgui;
 
+import sistema.clases.*;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
- * @author Josè MP
+ * @author David
  */
 public class frmdietas extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmdietas
+     * Creates new form MostrarPDF
      */
+    Tabla_PdfVO tpdf = new Tabla_PdfVO();
+    String ruta_archivo = "";
+    int id = -1;
+
     public frmdietas() {
         initComponents();
+        
+        tpdf.visualizar_PdfVO(tabla);
+        activa_boton(false, false, false);
+        txtname.setEnabled(false);
+    }
+
+    public void guardar_pdf(int codigo, String nombre, int coach,  File ruta) {
+        PdfDAO pa = new PdfDAO();
+        PdfVO po = new PdfVO();
+        po.setIddieta(codigo);
+        po.setNombrepdf(nombre);
+        po.setIdcoach(coach);
+        try {
+            byte[] pdf = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(pdf);
+            po.setArchivopdf(pdf);
+        } catch (IOException ex) {
+            po.setArchivopdf(null);
+            //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
+        }
+        pa.Agregar_PdfVO(po);
+    }
+
+    public void modificar_pdf(int codigo, String nombre, int coach, File ruta) {
+        PdfDAO pa = new PdfDAO();
+        PdfVO po = new PdfVO();
+        po.setIddieta(codigo);
+        po.setNombrepdf(nombre);
+        po.setIdcoach(coach);
+        try {
+            byte[] pdf = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(pdf);
+            po.setArchivopdf(pdf);
+        } catch (IOException ex) {
+            po.setArchivopdf(null);
+            //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
+        }
+        pa.Modificar_PdfVO(po);
+    }
+
+    public void modificar_pdf(int codigo, String nombre, int coach) {
+        PdfDAO pa = new PdfDAO();
+        PdfVO po = new PdfVO();
+        po.setIddieta(codigo);
+        po.setNombrepdf(nombre);
+        po.setIdcoach(coach);
+        pa.Modificar_PdfVO2(po);
+    }
+
+    public void eliminar_pdf(int codigo) {
+        PdfDAO pa = new PdfDAO();
+        PdfVO po = new PdfVO();
+        po.setIddieta(codigo);
+        pa.Eliminar_PdfVO(po);
+    }
+
+    public void seleccionar_pdf() {
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fi = new FileNameExtensionFilter("docx", "docx");
+        j.setFileFilter(fi);
+        int se = j.showOpenDialog(this);
+        if (se == 0) {
+            this.btnseleccionar.setText("" + j.getSelectedFile().getName());
+            ruta_archivo = j.getSelectedFile().getAbsolutePath();
+
+        } else {
+        }
+    }
+
+    public void activa_boton(boolean a, boolean b, boolean c) {
+        btnguardar.setEnabled(a);
+        btnmodificar.setEnabled(b);
+        btneliminar.setEnabled(c);
+        txtname.setText("");
+        btnseleccionar.setText("Seleccionar...");
     }
 
     /**
@@ -26,169 +120,278 @@ public class frmdietas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bckg = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        jTextField2 = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        tabla = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        btnnuevo = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
+        btnmodificar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
+        btncancelar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        txtname = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtidcoach = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnseleccionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(658, 369));
-        setPreferredSize(new java.awt.Dimension(714, 500));
-        setResizable(false);
+        setTitle("Guardar y Leer PDF");
 
-        bckg.setBackground(new java.awt.Color(255, 255, 255));
-        bckg.setPreferredSize(new java.awt.Dimension(658, 500));
-        bckg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Codigo", "Nombre", "Archivo"
+            }
+        ));
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabla);
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 0));
+        btnnuevo.setText("Nuevo");
+        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnuevoActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setBackground(new java.awt.Color(1, 74, 9));
-        jLabel1.setFont(new java.awt.Font("Perpetua", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Dietas ");
+        btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
+
+        btnmodificar.setText("Modificar");
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
+
+        btneliminar.setText("Eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
+
+        btncancelar.setText("Cancelar");
+        btncancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnnuevo)
+                .addGap(29, 29, 29)
+                .addComponent(btnguardar)
+                .addGap(28, 28, 28)
+                .addComponent(btnmodificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btneliminar)
+                .addGap(27, 27, 27)
+                .addComponent(btncancelar))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnnuevo)
+                    .addComponent(btnguardar)
+                    .addComponent(btnmodificar)
+                    .addComponent(btneliminar)
+                    .addComponent(btncancelar))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        bckg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 60));
+        jLabel1.setText("Nombre del archivo:");
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel3.setText("Archivo:");
-        bckg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel4.setText("Id del Fitness:");
-        bckg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
-
-        jTextField1.setBorder(null);
-        bckg.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 160, -1));
-        bckg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 160, 10));
-
-        jTextField2.setBorder(null);
-        bckg.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 160, -1));
-        bckg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 160, 10));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-
-        bckg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 490, 90));
-
-        jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel5.setText("Id del Couch:");
-        bckg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
-
-        jButton1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        jButton1.setText("Seleccionar...");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        bckg.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 170, -1));
-
-        jButton2.setText("Agregar");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bckg.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
-
-        jButton3.setText("Editar");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bckg.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
-
-        jButton4.setText("Borrar");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bckg.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
-
-        jButton5.setText("Cancelar");
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        bckg.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, -1));
-
-        jPanel2.setBackground(new java.awt.Color(204, 0, 0));
-
-        jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Inicio");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.setText("Id coach:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtidcoach, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtidcoach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
 
-        bckg.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 110, 50));
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Guardar PDF en la base de Datos");
+
+        jLabel2.setText("Seleccionar archivo:");
+
+        btnseleccionar.setText("Seleccionar...");
+        btnseleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnseleccionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bckg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(btnseleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bckg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addGap(14, 14, 14)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(btnseleccionar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnseleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnseleccionarActionPerformed
+        seleccionar_pdf();
+    }//GEN-LAST:event_btnseleccionarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        String nombre = txtname.getText();
+        sql s = new sql();
+        int codigo = s.auto_increment("SELECT MAX(iddieta) FROM dieta;");
+        int coach = coach = Integer.parseInt(txtidcoach.getText());
+        File ruta = new File(ruta_archivo);
+        if (nombre.trim().length() != 0 && ruta_archivo.trim().length() != 0) {
+            guardar_pdf(codigo, nombre, coach, ruta);
+            tpdf.visualizar_PdfVO(tabla);
+            ruta_archivo = "";
+            activa_boton(false, false, false);
+            txtname.setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Rellenar todo los campos");
+        }
+    }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        String nombre = txtname.getText();
+        int coach;
+        coach = Integer.parseInt(txtidcoach.getText());
+        File ruta = new File(ruta_archivo);
+        if (nombre.trim().length() != 0 && ruta_archivo.trim().length() != 0) {
+            modificar_pdf(id, nombre, coach, ruta);
+            tpdf.visualizar_PdfVO(tabla);
+        } else if (ruta_archivo.trim().length() == 0) {
+            modificar_pdf(id, nombre, coach);
+            tpdf.visualizar_PdfVO(tabla);
+        }
+        ruta_archivo = "";
+        activa_boton(false, false, false);
+        txtname.setEnabled(false);
+
+    }//GEN-LAST:event_btnmodificarActionPerformed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+        int column = tabla.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY() / tabla.getRowHeight();
+        activa_boton(false, true, true);
+        txtname.setEnabled(true);
+        if (row < tabla.getRowCount() && row >= 0 && column < tabla.getColumnCount() && column >= 0) {
+            id = (int) tabla.getValueAt(row, 0);
+            Object value = tabla.getValueAt(row, column);
+            if (value instanceof JButton) {
+                ((JButton) value).doClick();
+                JButton boton = (JButton) value;
+
+                if (boton.getText().equals("Vacio")) {
+                    JOptionPane.showMessageDialog(null, "No hay archivo");
+                } else {
+                    PdfDAO pd = new PdfDAO();
+                    pd.ejecutar_archivoPDF(id);
+                    try {
+                        Desktop.getDesktop().open(new File("new.pdf"));
+                    } catch (Exception ex) {
+                    }
+                }
+
+            } else {
+                String name = "" + tabla.getValueAt(row, 1);
+                txtname.setText(name);
+            }
+        }
+    }//GEN-LAST:event_tablaMouseClicked
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        eliminar_pdf(id);
+        tpdf.visualizar_PdfVO(tabla);
+        activa_boton(false, false, false);
+        txtname.setEnabled(false);
+        ruta_archivo = "";
+    }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
+        activa_boton(false, false, false);
+        ruta_archivo = "";
+        txtname.setEnabled(false);
+    }//GEN-LAST:event_btncancelarActionPerformed
+
+    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
+        activa_boton(true, false, false);
+        txtname.setEnabled(true);
+        txtidcoach.setEnabled(true);
+        ruta_archivo = "";
+    }//GEN-LAST:event_btnnuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,7 +404,7 @@ public class frmdietas extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -216,6 +419,7 @@ public class frmdietas extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(frmdietas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -226,24 +430,21 @@ public class frmdietas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bckg;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btncancelar;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnmodificar;
+    private javax.swing.JButton btnnuevo;
+    private javax.swing.JButton btnseleccionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTable tabla;
+    private javax.swing.JTextField txtidcoach;
+    private javax.swing.JTextField txtname;
     // End of variables declaration//GEN-END:variables
 }

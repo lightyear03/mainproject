@@ -206,7 +206,7 @@ public class frmdietas extends javax.swing.JFrame {
                 .addComponent(btnguardar)
                 .addGap(28, 28, 28)
                 .addComponent(btnmodificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(btneliminar)
                 .addGap(27, 27, 27)
                 .addComponent(btncancelar))
@@ -338,7 +338,7 @@ public class frmdietas extends javax.swing.JFrame {
                     PdfDAO pd = new PdfDAO();
                     pd.ejecutar_archivoPDF(id);
                     try {
-                        Desktop.getDesktop().open(new File("new.pdf"));
+                        Desktop.getDesktop().open(new File("new.docx"));
                     } catch (Exception ex) {
                     }
                 }

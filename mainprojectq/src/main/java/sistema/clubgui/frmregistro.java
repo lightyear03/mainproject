@@ -318,7 +318,9 @@ try{
     }//GEN-LAST:event_CajaUsuarioMousePressed
 
     private void TextoRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistrarMouseClicked
-        
+     frmfitnessdata frmfitnessdata = new frmfitnessdata();
+     frmfitnessdata.setVisible(true);
+     this.dispose();
     }//GEN-LAST:event_TextoRegistrarMouseClicked
 
     /**

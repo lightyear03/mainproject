@@ -200,6 +200,11 @@ public class frmnuevofitness extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Pesaje");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -394,6 +399,12 @@ public class frmnuevofitness extends javax.swing.JFrame {
         txtmail.setText("");
         txtcoach.setText("");
     }//GEN-LAST:event_limpiarMouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        frmpesaje frmpesaje = new frmpesaje();
+        frmpesaje.setVisible(true);
+        this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments

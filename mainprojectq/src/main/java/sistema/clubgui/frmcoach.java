@@ -44,6 +44,8 @@ public class frmcoach extends javax.swing.JFrame {
         textoPesaje = new javax.swing.JLabel();
         BotonPagos = new javax.swing.JPanel();
         textoPagos = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,16 +57,13 @@ public class frmcoach extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Open Sans Semibold", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("¡Bienvenido al sistema!");
+        jLabel2.setText("¡Bienvenido al sistema Coach!");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,6 +357,7 @@ public class frmcoach extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void TextoLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoLoginMouseClicked
         frmlogin frmlogin = new frmlogin();
         frmlogin.setVisible(true);
@@ -492,6 +492,7 @@ public class frmcoach extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textoPesajeMouseExited
 
+
     /**
      * @param args the command line arguments
      */
@@ -539,8 +540,8 @@ public class frmcoach extends javax.swing.JFrame {
     private javax.swing.JLabel TextoRegistrar1;
     private javax.swing.JLabel TextoRegistrar3;
     private javax.swing.JPanel bg;
-    private javax.swing.JPanel botonLogin;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel textoPagos;

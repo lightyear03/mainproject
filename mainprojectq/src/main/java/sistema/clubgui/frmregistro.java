@@ -10,7 +10,7 @@ import java.awt.*;
 
 
 public class frmregistro extends javax.swing.JFrame {
-
+    
     Connection conectar = null;
     String  usuario="DDEVELOP";
     String contrasena="DATADEV20163q";
@@ -75,7 +75,6 @@ public class frmregistro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(589, 363));
-        setPreferredSize(new java.awt.Dimension(589, 363));
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setMinimumSize(new java.awt.Dimension(589, 363));
@@ -211,7 +210,7 @@ public class frmregistro extends javax.swing.JFrame {
                 .addComponent(TextoRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bg.add(CajaRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 160, 50));
+        bg.add(CajaRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 160, 50));
 
         txtContra.setText("CajaContraseña");
         txtContra.setBorder(null);
@@ -235,26 +234,26 @@ public class frmregistro extends javax.swing.JFrame {
         });
         bg.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 120, 20));
 
-        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 0));
 
         TextoRegistro.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        TextoRegistro.setText("REGISTRO");
+        TextoRegistro.setText("REGISTRO DE NUEVOS ASESORES");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(104, 104, 104)
                 .addComponent(TextoRegistro)
-                .addContainerGap(447, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(TextoRegistro)
-                .addGap(17, 17, 17))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 60));
@@ -317,8 +316,8 @@ public class frmregistro extends javax.swing.JFrame {
 
     private void TextoRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistrarMouseClicked
 //<<<<<<< HEAD
-     frmfitnessdata frmfitnessdata = new frmfitnessdata();
-     frmfitnessdata.setVisible(true);
+     frmlogin login = new frmlogin();
+     login.setVisible(true);
      this.dispose();
 //=======
 try {

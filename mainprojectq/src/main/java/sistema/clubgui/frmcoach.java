@@ -4,11 +4,42 @@
  */
 package sistema.clubgui;
 
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import sistema.dal.conectar;
+
 /**
  *
  * @author Josè MP
  */
 public class frmcoach extends javax.swing.JFrame {
+    Connection conectar = null;
+    String  usuario="DDEVELOP";
+    String contrasena="DATADEV20163q";
+    String bd ="bdconsul";
+    String ip="localhost";
+    String puerto="3306";
+    PreparedStatement ps;
+    ResultSet rs;
+    
+    String cadena="jdbc:mysql://"+ip+":"+puerto+"/"+bd;
+    
+    public Connection conexionbd(){
+        
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conectar=DriverManager.getConnection(cadena, usuario, contrasena);
+            JOptionPane.showMessageDialog(null, "ACCESO: Se conecto la base de datos.");
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR: No se conecto la base de datos."+e.toString());
+        }
+        return conectar;
+        
+    }
 
     /**
      * Creates new form frmcoach

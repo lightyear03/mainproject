@@ -12,9 +12,9 @@ import java.awt.*;
 public class frmregistro extends javax.swing.JFrame {
     
     Connection conectar = null;
-    String  usuario="DDEVELOP";
-    String contrasena="DATADEV20163q";
-    String bd ="bdconsul";
+    String  usuario="root";
+    String contrasena="02febrero";
+    String bd ="proyectfn";
     String ip="localhost";
     String puerto="3306";
     PreparedStatement ps;
@@ -35,13 +35,13 @@ public class frmregistro extends javax.swing.JFrame {
         
     }
 
-    private void limpiarCajas(){
+   /* private void limpiarCajas(){
         CajaCorreo.setText(null);
         CajaID.setText(null);
         CajaNombre.setText(null);
         CajaUsuario.setText(null);
         txtContra.setText(null);
-    }
+    }*/
     
     public frmregistro() {
         initComponents();
@@ -234,7 +234,7 @@ public class frmregistro extends javax.swing.JFrame {
         });
         bg.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 120, 20));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         TextoRegistro.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         TextoRegistro.setText("REGISTRO DE NUEVOS ASESORES");
@@ -315,10 +315,7 @@ public class frmregistro extends javax.swing.JFrame {
     }//GEN-LAST:event_CajaUsuarioMousePressed
 
     private void TextoRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistrarMouseClicked
-//<<<<<<< HEAD
-     frmlogin login = new frmlogin();
-     login.setVisible(true);
-     this.dispose();
+
 //=======
 try {
         
@@ -335,9 +332,9 @@ try {
          int res=ps.executeUpdate();
     
         if (res>0) {
-            JOptionPane.showMessageDialog(null,"Registro exitoso");
-            limpiarCajas();
-            CajaID.grabFocus();    
+            JOptionPane.showMessageDialog(null,"Registro exitoso"); 
+                new frmcoach().setVisible(true);
+                this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Error al registrar");
         }

@@ -72,6 +72,8 @@ public class frmregistro extends javax.swing.JFrame {
         txtContra = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
         TextoRegistro = new javax.swing.JLabel();
+        CajaRegistrar1 = new javax.swing.JPanel();
+        TextoRegistrar1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(589, 363));
@@ -258,6 +260,42 @@ public class frmregistro extends javax.swing.JFrame {
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 60));
 
+        CajaRegistrar1.setBackground(new java.awt.Color(47, 106, 135));
+
+        TextoRegistrar1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        TextoRegistrar1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoRegistrar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TextoRegistrar1.setText("Inicia sesion");
+        TextoRegistrar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TextoRegistrar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TextoRegistrar1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TextoRegistrar1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TextoRegistrar1MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout CajaRegistrar1Layout = new javax.swing.GroupLayout(CajaRegistrar1);
+        CajaRegistrar1.setLayout(CajaRegistrar1Layout);
+        CajaRegistrar1Layout.setHorizontalGroup(
+            CajaRegistrar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CajaRegistrar1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(TextoRegistrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        CajaRegistrar1Layout.setVerticalGroup(
+            CajaRegistrar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CajaRegistrar1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(TextoRegistrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(CajaRegistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -377,6 +415,18 @@ try {
         }
     }//GEN-LAST:event_CajaUsuarioKeyTyped
 
+    private void TextoRegistrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistrar1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextoRegistrar1MouseClicked
+
+    private void TextoRegistrar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistrar1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextoRegistrar1MouseEntered
+
+    private void TextoRegistrar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistrar1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextoRegistrar1MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -417,12 +467,14 @@ try {
     private javax.swing.JTextField CajaID;
     private javax.swing.JTextField CajaNombre;
     private javax.swing.JPanel CajaRegistrar;
+    private javax.swing.JPanel CajaRegistrar1;
     private javax.swing.JTextField CajaUsuario;
     private javax.swing.JLabel TextoContraseña;
     private javax.swing.JLabel TextoCorreo;
     private javax.swing.JLabel TextoID;
     private javax.swing.JLabel TextoNombre;
     private javax.swing.JLabel TextoRegistrar;
+    private javax.swing.JLabel TextoRegistrar1;
     private javax.swing.JLabel TextoRegistro;
     private javax.swing.JLabel TextoUsuario;
     private javax.swing.JPanel bg;

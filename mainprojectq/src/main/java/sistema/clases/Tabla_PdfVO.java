@@ -28,7 +28,7 @@ public class Tabla_PdfVO {
 
         ImageIcon icono = null;
         if (get_Image("/images/worda.png") != null) {
-            icono = new ImageIcon(get_Image("/images/worda.png"));
+            icono = new ImageIcon(get_Image("/images/wosrda.png"));
         }
 
         dao = new PdfDAO();

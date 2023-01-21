@@ -76,7 +76,7 @@ public class frmpesaje extends javax.swing.JFrame {
         txtpe = new javax.swing.JTextField();
         txtbra = new javax.swing.JTextField();
         txtem = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
+        BotonInicio = new javax.swing.JPanel();
         inicio = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         registrar = new javax.swing.JLabel();
@@ -92,7 +92,6 @@ public class frmpesaje extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(658, 369));
-        setPreferredSize(new java.awt.Dimension(714, 400));
         setResizable(false);
 
         bckg.setBackground(new java.awt.Color(255, 255, 255));
@@ -248,30 +247,35 @@ public class frmpesaje extends javax.swing.JFrame {
         bckg.add(txtbra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 70, -1));
         bckg.add(txtem, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 70, -1));
 
-        jPanel4.setBackground(new java.awt.Color(154, 81, 49));
+        BotonInicio.setBackground(new java.awt.Color(154, 81, 49));
 
         inicio.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
         inicio.setForeground(new java.awt.Color(255, 255, 255));
         inicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         inicio.setText("INICIO");
         inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inicioMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout BotonInicioLayout = new javax.swing.GroupLayout(BotonInicio);
+        BotonInicio.setLayout(BotonInicioLayout);
+        BotonInicioLayout.setHorizontalGroup(
+            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonInicioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        BotonInicioLayout.setVerticalGroup(
+            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonInicioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bckg.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, 30));
+        bckg.add(BotonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, 30));
 
         jPanel5.setBackground(new java.awt.Color(154, 81, 49));
 
@@ -488,6 +492,12 @@ public class frmpesaje extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_modificarMouseClicked
 
+    private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
+        frminicio frminicio = new frminicio();
+        frminicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_inicioMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -524,6 +534,7 @@ public class frmpesaje extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BotonInicio;
     private javax.swing.JPanel bckg;
     private javax.swing.JLabel et1;
     private javax.swing.JLabel et2;
@@ -546,7 +557,6 @@ public class frmpesaje extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

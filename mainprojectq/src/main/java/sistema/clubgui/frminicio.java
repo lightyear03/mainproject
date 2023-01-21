@@ -7,10 +7,7 @@ package sistema.clubgui;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-/**
- *
- * @author Josè MP
- */
+
 public class frminicio extends javax.swing.JFrame {
     @Override
 public Image getIconImage() {
@@ -39,50 +36,55 @@ public Image getIconImage() {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        Titulo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BotonDieta = new javax.swing.JPanel();
         TextoDieta = new javax.swing.JLabel();
         BotonFitnessData = new javax.swing.JPanel();
-        TextoFitnessData4 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        TextoFitnessData2 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        TextoFitnessData3 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
         TextoFitnessData = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        TextoFitnessData1 = new javax.swing.JLabel();
+        BotonPago = new javax.swing.JPanel();
+        TextoPago = new javax.swing.JLabel();
+        BotonPesaje = new javax.swing.JPanel();
+        TextoPesaje = new javax.swing.JLabel();
+        BotonRegistroMiembro = new javax.swing.JPanel();
+        TextoRegistroMiembro = new javax.swing.JLabel();
+        BotonPesoConsulta = new javax.swing.JPanel();
+        TextoPesoConsulta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(166, 140, 113));
+        Titulo.setBackground(new java.awt.Color(166, 140, 113));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("¡Bienvenido al sistema!");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);
+        Titulo.setLayout(TituloLayout);
+        TituloLayout.setHorizontalGroup(
+            TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TituloLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        TituloLayout.setVerticalGroup(
+            TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TituloLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 350, 50));
+        bg.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 350, 50));
 
         BotonDieta.setBackground(new java.awt.Color(219, 197, 164));
+        BotonDieta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonDietaMouseClicked(evt);
+            }
+        });
 
         TextoDieta.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         TextoDieta.setText("     DIETA");
@@ -104,9 +106,14 @@ public Image getIconImage() {
         bg.add(BotonDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 140, 50));
 
         BotonFitnessData.setBackground(new java.awt.Color(219, 197, 164));
+        BotonFitnessData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonFitnessDataMouseClicked(evt);
+            }
+        });
 
-        TextoFitnessData4.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        TextoFitnessData4.setText("CONSULTAR DATOS");
+        TextoFitnessData.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        TextoFitnessData.setText("CONSULTAR DATOS");
 
         javax.swing.GroupLayout BotonFitnessDataLayout = new javax.swing.GroupLayout(BotonFitnessData);
         BotonFitnessData.setLayout(BotonFitnessDataLayout);
@@ -114,109 +121,130 @@ public Image getIconImage() {
             BotonFitnessDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonFitnessDataLayout.createSequentialGroup()
                 .addContainerGap(10, Short.MAX_VALUE)
-                .addComponent(TextoFitnessData4)
+                .addComponent(TextoFitnessData)
                 .addContainerGap())
         );
         BotonFitnessDataLayout.setVerticalGroup(
             BotonFitnessDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotonFitnessDataLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TextoFitnessData4, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(TextoFitnessData, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         bg.add(BotonFitnessData, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 160, 50));
 
-        jPanel4.setBackground(new java.awt.Color(219, 197, 164));
+        BotonPago.setBackground(new java.awt.Color(219, 197, 164));
+        BotonPago.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonPagoMouseClicked(evt);
+            }
+        });
 
-        TextoFitnessData2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        TextoFitnessData2.setText("        PAGOS");
+        TextoPago.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        TextoPago.setText("        PAGOS");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout BotonPagoLayout = new javax.swing.GroupLayout(BotonPago);
+        BotonPago.setLayout(BotonPagoLayout);
+        BotonPagoLayout.setHorizontalGroup(
+            BotonPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonPagoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TextoFitnessData2)
+                .addComponent(TextoPago)
                 .addContainerGap(43, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        BotonPagoLayout.setVerticalGroup(
+            BotonPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonPagoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TextoFitnessData2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(TextoPago, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        bg.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 140, 50));
+        bg.add(BotonPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 140, 50));
 
-        jPanel7.setBackground(new java.awt.Color(219, 197, 164));
+        BotonPesaje.setBackground(new java.awt.Color(219, 197, 164));
+        BotonPesaje.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonPesajeMouseClicked(evt);
+            }
+        });
 
-        TextoFitnessData3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        TextoFitnessData3.setText("     PESAJE");
+        TextoPesaje.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        TextoPesaje.setText("PESAJE");
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(TextoFitnessData3)
-                .addGap(23, 23, 23))
+        javax.swing.GroupLayout BotonPesajeLayout = new javax.swing.GroupLayout(BotonPesaje);
+        BotonPesaje.setLayout(BotonPesajeLayout);
+        BotonPesajeLayout.setHorizontalGroup(
+            BotonPesajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonPesajeLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(TextoPesaje)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        BotonPesajeLayout.setVerticalGroup(
+            BotonPesajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonPesajeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TextoFitnessData3, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(TextoPesaje, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        bg.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, 50));
+        bg.add(BotonPesaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 140, 50));
 
-        jPanel6.setBackground(new java.awt.Color(219, 197, 164));
+        BotonRegistroMiembro.setBackground(new java.awt.Color(219, 197, 164));
+        BotonRegistroMiembro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonRegistroMiembroMouseClicked(evt);
+            }
+        });
 
-        TextoFitnessData.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        TextoFitnessData.setText("REGISTRAR MIEMBRO");
+        TextoRegistroMiembro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        TextoRegistroMiembro.setText("REGISTRAR MIEMBRO");
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(TextoFitnessData)
+        javax.swing.GroupLayout BotonRegistroMiembroLayout = new javax.swing.GroupLayout(BotonRegistroMiembro);
+        BotonRegistroMiembro.setLayout(BotonRegistroMiembroLayout);
+        BotonRegistroMiembroLayout.setHorizontalGroup(
+            BotonRegistroMiembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonRegistroMiembroLayout.createSequentialGroup()
+                .addComponent(TextoRegistroMiembro)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextoFitnessData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        BotonRegistroMiembroLayout.setVerticalGroup(
+            BotonRegistroMiembroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TextoRegistroMiembro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        bg.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 160, 50));
+        bg.add(BotonRegistroMiembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 160, 50));
 
-        jPanel5.setBackground(new java.awt.Color(219, 197, 164));
+        BotonPesoConsulta.setBackground(new java.awt.Color(219, 197, 164));
+        BotonPesoConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonPesoConsultaMouseClicked(evt);
+            }
+        });
 
-        TextoFitnessData1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        TextoFitnessData1.setText("CONSULTAR PESO");
+        TextoPesoConsulta.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        TextoPesoConsulta.setText("CONSULTAR PESO");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(TextoFitnessData1)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout BotonPesoConsultaLayout = new javax.swing.GroupLayout(BotonPesoConsulta);
+        BotonPesoConsulta.setLayout(BotonPesoConsultaLayout);
+        BotonPesoConsultaLayout.setHorizontalGroup(
+            BotonPesoConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonPesoConsultaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TextoFitnessData1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(TextoPesoConsulta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        BotonPesoConsultaLayout.setVerticalGroup(
+            BotonPesoConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonPesoConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoPesoConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        bg.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 140, 50));
+        bg.add(BotonPesoConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 140, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -231,16 +259,46 @@ public Image getIconImage() {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+//ACCIONES DE LOS BOTONES
+    private void BotonDietaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonDietaMouseClicked
+        frmdietas frmdietas = new frmdietas();
+        frmdietas.setVisible(true);
+        //Abre la ventana de dietas
+    }//GEN-LAST:event_BotonDietaMouseClicked
+
+    private void BotonFitnessDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonFitnessDataMouseClicked
+        frmfitnessdata frmfitnessdata = new frmfitnessdata();
+        frmfitnessdata.setVisible(true);
+    }//GEN-LAST:event_BotonFitnessDataMouseClicked
+
+    private void BotonPagoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPagoMouseClicked
+        frmpagos frmpagos = new frmpagos();
+        frmpagos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotonPagoMouseClicked
+
+    private void BotonPesajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPesajeMouseClicked
+        frmpesaje frmpesaje = new frmpesaje();
+        frmpesaje.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotonPesajeMouseClicked
+
+    private void BotonRegistroMiembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonRegistroMiembroMouseClicked
+        frmnuevofitness frmnuevofitness = new frmnuevofitness();
+        frmnuevofitness.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotonRegistroMiembroMouseClicked
+
+    private void BotonPesoConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonPesoConsultaMouseClicked
+        frmpesajesdata frmpesajesdata = new frmpesajesdata();
+        frmpesajesdata.setVisible(true);
+    }//GEN-LAST:event_BotonPesoConsultaMouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        //jPanel1Layout jPanel1Layout = jPanel1Layout();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -270,18 +328,18 @@ public Image getIconImage() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BotonDieta;
     private javax.swing.JPanel BotonFitnessData;
+    private javax.swing.JPanel BotonPago;
+    private javax.swing.JPanel BotonPesaje;
+    private javax.swing.JPanel BotonPesoConsulta;
+    private javax.swing.JPanel BotonRegistroMiembro;
     private javax.swing.JLabel TextoDieta;
     private javax.swing.JLabel TextoFitnessData;
-    private javax.swing.JLabel TextoFitnessData1;
-    private javax.swing.JLabel TextoFitnessData2;
-    private javax.swing.JLabel TextoFitnessData3;
-    private javax.swing.JLabel TextoFitnessData4;
+    private javax.swing.JLabel TextoPago;
+    private javax.swing.JLabel TextoPesaje;
+    private javax.swing.JLabel TextoPesoConsulta;
+    private javax.swing.JLabel TextoRegistroMiembro;
+    private javax.swing.JPanel Titulo;
     private javax.swing.JPanel bg;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     // End of variables declaration//GEN-END:variables
 }

@@ -53,7 +53,7 @@ public class frmlogin extends javax.swing.JFrame {
             
             if(rs.next()){
                 this.dispose();
-                new frmcoach().setVisible(true);  
+                new frminicio().setVisible(true);  
             }else{
                     JOptionPane.showMessageDialog(this, "Credenciales incorrectas");
                 }
@@ -321,7 +321,7 @@ public class frmlogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        frmcoach menu = new frmcoach();
+        frminicio menu = new frminicio();
        menu.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jLabel7MouseClicked

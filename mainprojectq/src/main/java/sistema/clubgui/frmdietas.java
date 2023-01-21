@@ -139,6 +139,7 @@ public class frmdietas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Guardar y Leer PDF");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -148,7 +149,7 @@ public class frmdietas extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Codigo", "Nombre", "Archivo"
+                "Id", "Nombre", "Archivo"
             }
         ));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -256,7 +257,7 @@ public class frmdietas extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("REGISTRO DE DIESTAS");
+        jLabel3.setText("REGISTRO DE DIETAS");
 
         jLabel2.setText("Seleccionar archivo:");
 
@@ -294,9 +295,9 @@ public class frmdietas extends javax.swing.JFrame {
                     .addComponent(btnseleccionar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addGap(36, 36, 36))
         );
 
         pack();

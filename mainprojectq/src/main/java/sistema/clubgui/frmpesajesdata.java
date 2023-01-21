@@ -57,7 +57,7 @@ public class frmpesajesdata extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         bdate = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        limpiar = new javax.swing.JLabel();
+        limpiar1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         visor = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
@@ -65,6 +65,8 @@ public class frmpesajesdata extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         idpe = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
+        jPanel7 = new javax.swing.JPanel();
+        limpiar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(660, 370));
@@ -233,14 +235,14 @@ public class frmpesajesdata extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 204));
 
-        limpiar.setFont(new java.awt.Font("Roboto Light", 1, 12)); // NOI18N
-        limpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        limpiar.setText("LIMPIAR");
-        limpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        limpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+        limpiar1.setFont(new java.awt.Font("Roboto Light", 1, 12)); // NOI18N
+        limpiar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        limpiar1.setText("LIMPIAR");
+        limpiar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        limpiar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        limpiar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                limpiarMouseClicked(evt);
+                limpiar1MouseClicked(evt);
             }
         });
 
@@ -250,18 +252,18 @@ public class frmpesajesdata extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(0, 2, Short.MAX_VALUE)
-                .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(limpiar1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(limpiar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bg.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 110, -1));
 
-        visor.setBackground(new java.awt.Color(204, 255, 204));
+        visor.setBackground(new java.awt.Color(255, 204, 204));
         visor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -316,6 +318,34 @@ public class frmpesajesdata extends javax.swing.JFrame {
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, 10));
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 204));
+
+        limpiar.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        limpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        limpiar.setText("INICIO");
+        limpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        limpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                limpiarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(limpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -500,6 +530,10 @@ public class frmpesajesdata extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void limpiar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_limpiar1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_limpiar1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -553,12 +587,14 @@ public class frmpesajesdata extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel limpiar;
+    private javax.swing.JLabel limpiar1;
     private javax.swing.JTextField txtcoach;
     private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtid;

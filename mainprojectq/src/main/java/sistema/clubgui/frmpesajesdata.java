@@ -261,7 +261,7 @@ public class frmpesajesdata extends javax.swing.JFrame {
 
         bg.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 110, -1));
 
-        visor.setBackground(new java.awt.Color(204, 255, 204));
+        visor.setBackground(new java.awt.Color(255, 204, 204));
         visor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

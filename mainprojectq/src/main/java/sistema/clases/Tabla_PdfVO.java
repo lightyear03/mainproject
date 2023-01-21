@@ -12,23 +12,23 @@ import javax.swing.JButton;
 public class Tabla_PdfVO {
 
     PdfDAO dao = null;
-
+      
     public void visualizar_PdfVO(JTable tabla) {
-        
+        tabla.setDefaultRenderer(Object.class, new imgtable());
         DefaultTableModel dt = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        dt.addColumn("codigopdf");
-        dt.addColumn("nombrepdf");
-        dt.addColumn("id del asesor");
-        dt.addColumn("archivopdf");
+        dt.addColumn("Id de dieta");
+        dt.addColumn("Nombre");
+        dt.addColumn("Asesor");
+        dt.addColumn("Documento");
 
         ImageIcon icono = null;
-        if (get_Image("/Imagen/32pdf.png") != null) {
-            icono = new ImageIcon(get_Image("/Imagen/32pdf.png"));
+        if (get_Image("/images/worda.png") != null) {
+            icono = new ImageIcon(get_Image("/images/worda.png"));
         }
 
         dao = new PdfDAO();

@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
 public class frmlogin extends javax.swing.JFrame {
 
     Connection conectar = null;
-    String  usuario="DDEVELOP";
-    String contrasena="DATADEV20163q";
-    String bd ="bdconsul";
+    String  usuario="root";
+    String contrasena="02febrero";
+    String bd ="proyectfn";
     String ip="localhost";
     String puerto="3306";
     PreparedStatement ps;

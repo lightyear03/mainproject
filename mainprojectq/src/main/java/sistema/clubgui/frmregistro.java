@@ -333,7 +333,7 @@ try {
     
         if (res>0) {
             JOptionPane.showMessageDialog(null,"Registro exitoso"); 
-                new frmcoach().setVisible(true);
+                new frminicio().setVisible(true);
                 this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Error al registrar");

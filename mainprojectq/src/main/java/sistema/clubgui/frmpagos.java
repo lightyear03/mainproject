@@ -58,7 +58,7 @@ public class frmpagos extends javax.swing.JFrame {
         btadd = new javax.swing.JButton();
         btedit = new javax.swing.JButton();
         btdelete = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        BotonInicio = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtfr = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
@@ -74,7 +74,6 @@ public class frmpagos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(658, 369));
-        setPreferredSize(new java.awt.Dimension(714, 500));
 
         btcancel.setBackground(new java.awt.Color(255, 255, 255));
         btcancel.setPreferredSize(new java.awt.Dimension(714, 500));
@@ -163,30 +162,35 @@ public class frmpagos extends javax.swing.JFrame {
         });
         btcancel.add(btdelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 100, -1));
 
-        jPanel2.setBackground(new java.awt.Color(180, 206, 217));
+        BotonInicio.setBackground(new java.awt.Color(180, 206, 217));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Inicio");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout BotonInicioLayout = new javax.swing.GroupLayout(BotonInicio);
+        BotonInicio.setLayout(BotonInicioLayout);
+        BotonInicioLayout.setHorizontalGroup(
+            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonInicioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        BotonInicioLayout.setVerticalGroup(
+            BotonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonInicioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        btcancel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 110, 50));
+        btcancel.add(BotonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 110, 50));
 
         txtfr.setBorder(null);
         btcancel.add(txtfr, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 160, -1));
@@ -376,6 +380,12 @@ public class frmpagos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_limpiarActionPerformed
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        frminicio frminicio = new frminicio();
+        frminicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -412,6 +422,7 @@ public class frmpagos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BotonInicio;
     private javax.swing.JButton btadd;
     private javax.swing.JPanel btcancel;
     private javax.swing.JButton btdelete;
@@ -425,7 +436,6 @@ public class frmpagos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

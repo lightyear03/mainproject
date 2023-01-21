@@ -75,7 +75,9 @@ public class frmfitnessdata extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         eliminar = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
-        limpiar = new javax.swing.JLabel();
+        limpiar1 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        inicio = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -400,18 +402,18 @@ public class frmfitnessdata extends javax.swing.JFrame {
                 .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bg.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+        bg.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
 
         jPanel13.setBackground(new java.awt.Color(153, 153, 0));
 
-        limpiar.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        limpiar.setForeground(new java.awt.Color(255, 255, 255));
-        limpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        limpiar.setText("LIMPIAR");
-        limpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+        limpiar1.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        limpiar1.setForeground(new java.awt.Color(255, 255, 255));
+        limpiar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        limpiar1.setText("LIMPIAR");
+        limpiar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        limpiar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                limpiarMouseClicked(evt);
+                limpiar1MouseClicked(evt);
             }
         });
 
@@ -421,16 +423,46 @@ public class frmfitnessdata extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(limpiar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(limpiar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bg.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, -1));
+
+        jPanel14.setBackground(new java.awt.Color(153, 153, 0));
+
+        inicio.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        inicio.setForeground(new java.awt.Color(255, 255, 255));
+        inicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        inicio.setText("INICIO");
+        inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inicioMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -493,7 +525,7 @@ public class frmfitnessdata extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_eliminarMouseClicked
 
-    private void limpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_limpiarMouseClicked
+    private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
                 lbid.setText("");
                 lbnom.setText("");
                 lbed.setText("");
@@ -501,7 +533,11 @@ public class frmfitnessdata extends javax.swing.JFrame {
                 lbsex.setText("");
                 lbmail.setText("");
                 lbcoach.setText("");
-    }//GEN-LAST:event_limpiarMouseClicked
+    }//GEN-LAST:event_inicioMouseClicked
+
+    private void limpiar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_limpiar1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_limpiar1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -541,6 +577,7 @@ public class frmfitnessdata extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JLabel eliminar;
+    private javax.swing.JLabel inicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -555,6 +592,7 @@ public class frmfitnessdata extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -571,7 +609,7 @@ public class frmfitnessdata extends javax.swing.JFrame {
     private javax.swing.JLabel lbmail;
     private javax.swing.JLabel lbnom;
     private javax.swing.JLabel lbsex;
-    private javax.swing.JLabel limpiar;
+    private javax.swing.JLabel limpiar1;
     private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
 }

@@ -120,7 +120,7 @@ public Image getIconImage() {
         BotonFitnessDataLayout.setHorizontalGroup(
             BotonFitnessDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonFitnessDataLayout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(TextoFitnessData)
                 .addContainerGap())
         );
